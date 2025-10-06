@@ -13,7 +13,9 @@ As shown in the image, after the first `url.searchParams` check, the mockService
 and the script is not imported, failing the `worker.start()` initialization.
 
 Logs: 
+
 <img width="649" height="784" alt="image" src="https://github.com/user-attachments/assets/a9ed0e50-29b7-40df-9f2d-a6e9aea55c5f" />
 
-Script: 
+SW Script:
+
 <img width="1064" height="661" alt="image" src="https://github.com/user-attachments/assets/75d1128c-c94b-4677-b2b5-91941c1c81b4" />
