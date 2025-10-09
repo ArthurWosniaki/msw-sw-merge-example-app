@@ -17,19 +17,17 @@ if (process.env.NODE_ENV === 'development') {
 navigator.serviceWorker.register(workerUrl.href);
 
 async function enableMocking() {
-  console.log({ nodeEnv: process.env.NODE_ENV });
   if (process.env.NODE_ENV !== 'development') {
     return;
   }
 
   const { worker } = await import('./mocks/browser');
-  console.log({ worker });
 
   // `worker.start()` returns a Promise that resolves
   // once the Service Worker is up and ready to intercept requests.
-  return worker.start({
-    serviceWorker: {
-      url: '/sw.js',
+  return await worker.start({
+    findWorker(scriptUrl) {
+      return scriptUrl.includes('mockServiceWorker');
     },
   });
 }
